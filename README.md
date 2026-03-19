@@ -266,7 +266,7 @@ A web interface for workers would add friction with no benefit. The product live
 
 ### Development Roadmap
 
-#### ✅ Phase 1 — Ideation & Foundation (March 4–20)
+#### ✅ Phase 1 — Ideation & Foundation 
 - [x] Persona research and disruption mapping
 - [x] Full README strategy document
 - [x] Premium model and trigger logic design
@@ -274,7 +274,7 @@ A web interface for workers would add friction with no benefit. The product live
 - [x] Phase 1 prototype: app shell + trigger stub + risk scorer demo
 - [x] 2-minute strategy video
 
-#### 🔲 Phase 2 — Core Build (March 21 – April 10)
+#### 🔲 Phase 2 — Core Build 
 - [ ] Worker onboarding flow (KYC-lite + UPI mandate setup)
 - [ ] Shift activation / deactivation with background location tracking
 - [ ] Trigger engine: IMD + OWM integration + zone-matching logic
@@ -282,14 +282,14 @@ A web interface for workers would add friction with no benefit. The product live
 - [ ] UPI payout disbursement (Razorpay sandbox)
 - [ ] PostgreSQL schema: workers · shifts · claims · payouts · trust_scores
 
-#### 🔲 Phase 3 — Intelligence Layer (April 11–30)
+#### 🔲 Phase 3 — Intelligence Layer 
 - [ ] Isolation Forest anomaly scorer on live claim submissions
 - [ ] Temporal GNN ring detector (streaming, not batch)
 - [ ] XGBoost dynamic premium model (trained on synthetic + IMD historical data)
 - [ ] Trust score system with adaptive threshold adjustment
 - [ ] Fraud ops web dashboard: flagged claim queue + signal breakdown
 
-#### 🔲 Phase 4 — Polish & Demo (May 1–15)
+#### 🔲 Phase 4 — Polish & Demo 
 - [ ] End-to-end scenario testing: all 3 personas + simulated fraud ring
 - [ ] False positive tuning across all signal weights
 - [ ] Load testing: 10,000 concurrent active workers on trigger engine

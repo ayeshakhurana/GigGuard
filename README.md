@@ -1,7 +1,7 @@
 # 🛡️ GigGuard — Parametric Income Insurance for India's Gig Delivery Workers
 
 > **DEVTrails 2026 · Phase 1 Submission**
-> Automatic, condition-triggered income protection for food delivery partners — built to pay the honest and catch the fraudulent.
+> Instant, condition-triggered income protection for food delivery partners — built to pay the honest and catch the fraudulent.
 
 ---
 
@@ -25,7 +25,7 @@ India's 12 million+ gig delivery workers are the backbone of our digital economy
 
 Traditional insurance is designed for salaried employees. It demands paperwork, adjusters, waiting periods, and fixed monthly premiums. None of that maps to a worker who earns ₹700 on a good day and ₹0 when the city shuts down.
 
-**GigGuard solves exactly this gap.** It is a parametric income insurance platform: when a predefined disruption condition is verified at a worker's active location, a payout fires automatically — no claim required, no adjuster involved, money in the UPI wallet within minutes.
+**GigGuard** solves exactly this gap. It is a parametric income insurance platform: when a predefined disruption condition is verified at a worker's active location, a payout fires automatically — no claim required, no adjuster involved, money in the UPI wallet within minutes.
 
 > ⚠️ **Coverage scope:** GigGuard insures **lost income only.** Vehicle repair, health, life, and accident costs are explicitly out of scope.
 
@@ -51,26 +51,15 @@ Traditional insurance is designed for salaried employees. It demands paperwork, 
 **Profile:**
 - Age 28 · Delivers for Zomato · 10–12 hrs/day · Earns ₹700–950/day
 - No savings buffer · Has lost 3–4 earning days per monsoon season with zero compensation
-- Primary concern: sudden Bengaluru downpours that get red-alert status within minutes
+- Primary concern: sudden Bengaluru downpours that escalate to red-alert within minutes
 
 **Scenario: Monsoon disruption payout**
 
-```
-08:30 AM  Ravi activates his shift in the GigGuard app.
-           Weekly premium of ₹49 was auto-debited on Monday. Coverage is live.
-
-06:45 PM  IMD issues red-alert for Bengaluru South (Ravi's active zone).
-           Rainfall exceeds 40mm/hr — parametric trigger condition met.
-
-06:46 PM  GigGuard trigger engine detects event + matches Ravi's live location to zone.
-           Multi-signal verification fires: GPS · cell towers · accelerometer · barometer.
-           Composite fraud score: 0.09 → AUTO-APPROVE path.
-
-06:49 PM  ₹250 income disruption payout sent to Ravi's UPI ID.
-           Push notification: "Storm payout of ₹250 sent. Stay safe, Ravi. 🌧️"
-
-Total elapsed time: 3 minutes 20 seconds. Ravi filed nothing.
-```
+- `08:30 AM` — Ravi activates his shift in the GigGuard app. Weekly premium of ₹49 was auto-debited on Monday. Coverage is live.
+- `06:45 PM` — IMD issues red-alert for Bengaluru South (Ravi's active zone). Rainfall exceeds 40mm/hr — parametric trigger condition met.
+- `06:46 PM` — GigGuard trigger engine detects event and matches Ravi's live location to zone. Multi-signal verification fires: GPS · cell towers · accelerometer · barometer. Composite fraud score: 0.09 → AUTO-APPROVE path.
+- `06:49 PM` — ₹250 income disruption payout sent to Ravi's UPI ID. Push notification: *"Storm payout of ₹250 sent. Stay safe, Ravi."*
+- **Total elapsed time: 3 minutes 20 seconds. Ravi filed nothing.**
 
 ---
 
@@ -83,21 +72,11 @@ Total elapsed time: 3 minutes 20 seconds. Ravi filed nothing.
 
 **Scenario: Heatwave payout with connectivity grace**
 
-```
-08:00 AM  Sunita activates her morning shift. Part-time tier: ₹29/week premium.
-
-11:15 AM  IMD heat index crosses 43°C in Pune Central — trigger condition met.
-           Sunita is active and in the affected zone.
-
-11:16 AM  Verification runs. GPS signal weak near underpass — location confidence: LOW.
-           System checks: heatwave advisory is active → coherence band widened.
-           Cell tower triangulation independently confirms zone. Score: 0.41 → SOFT FLAG.
-
-11:18 AM  Human reviewer notified. Confirms via cell data within 35 minutes.
-           ₹150 heat disruption payout released. No fraud mark on profile.
-
-01:00 PM  Sunita ends shift. Coverage pauses. No charge for the afternoon.
-```
+- `08:00 AM` — Sunita activates her morning shift. Part-time tier: ₹29/week premium.
+- `11:15 AM` — IMD heat index crosses 43°C in Pune Central — trigger condition met. Sunita is active and in the affected zone.
+- `11:16 AM` — Verification runs. GPS signal weak near underpass — location confidence: LOW. System detects heatwave advisory is active → coherence band widened. Cell tower triangulation independently confirms zone. Score: 0.41 → SOFT FLAG.
+- `11:18 AM` — Human reviewer notified. Confirms via cell data within 35 minutes. ₹150 heat disruption payout released. No fraud mark on profile.
+- `01:00 PM` — Sunita ends shift. Coverage pauses. No charge for the afternoon.
 
 ---
 
@@ -110,54 +89,30 @@ Total elapsed time: 3 minutes 20 seconds. Ravi filed nothing.
 
 **Scenario: Fog disruption, high-trust fast lane**
 
-```
-07:00 AM  Imran activates shift. Trust score: 0.91 (3 years, 200+ clean claims).
-           Anomaly band is widened — Imran gets benefit-of-the-doubt threshold.
-
-07:30 AM  IMD Dense Fog advisory: visibility <50m on NH-48 corridor.
-           Trigger condition met. Imran's location verified.
-           Fraud score: 0.06 (well within widened band) → AUTO-APPROVE.
-
-07:32 AM  ₹200 fog disruption payout sent. Imran never touched the app.
-```
+- `07:00 AM` — Imran activates shift. Trust score: 0.91 (3 years, 200+ clean claims). Anomaly band is widened — Imran gets benefit-of-the-doubt threshold.
+- `07:30 AM` — IMD Dense Fog advisory: visibility <50m on NH-48 corridor. Trigger condition met. Imran's location verified. Fraud score: 0.06 (well within widened band) → AUTO-APPROVE.
+- `07:32 AM` — ₹200 fog disruption payout sent. Imran never touched the app.
 
 ---
 
 ### Core Application Workflow
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    WORKER MOBILE APP                         │
-│   Onboarding → Risk Profile → Shift Activate → Payout Log   │
-└─────────────────────────┬────────────────────────────────────┘
-                          │  Location ping every 5 min (active shifts only)
-                          ▼
-┌──────────────────────────────────────────────────────────────┐
-│                   TRIGGER ENGINE                             │
-│   IMD API + OpenWeatherMap · Zone-to-worker grid matching    │
-│   Disruption types: Rain · Heat · Fog · AQI · Curfew alert  │
-│   Dual-source confirmation required before trigger fires     │
-└─────────────────────────┬────────────────────────────────────┘
-                          │  Trigger condition matched
-                          ▼
-┌──────────────────────────────────────────────────────────────┐
-│              MULTI-SIGNAL VERIFICATION LAYER                 │
-│   GPS · Cell towers · Accelerometer · Barometer · Wi-Fi     │
-│   isFromMockProvider() check · Physics plausibility          │
-│   → Composite risk score (0.0 – 1.0)                        │
-└─────────────────────────┬────────────────────────────────────┘
-                          │
-           ┌──────────────┼──────────────┐
-           ▼              ▼              ▼
-       Score <0.3     0.3 – 0.7      Score >0.7
-       Auto-pay      Human review    Hard block
-      (UPI, <5 min)  (2-hr SLA)     (Fraud team)
-           │              │              │
-           ▼              ▼              ▼
-       Payout sent    Payout held    Payout held
-                      → released     → appealed
-                        or denied     or denied
-```
+**Step 1 — Worker mobile app**
+The worker onboards, builds a risk profile, and activates their shift. The app pings location every 5 minutes during active shifts only — no background tracking when the shift is off.
+
+**Step 2 — Trigger engine**
+The engine continuously cross-references the worker's live location against real-time feeds from IMD and OpenWeatherMap. A trigger fires only when both sources independently confirm a qualifying disruption condition in the worker's exact micro-zone.
+
+**Step 3 — Multi-signal verification layer**
+On trigger, the system runs a composite fraud check across GPS, cell towers, accelerometer, barometer, Wi-Fi probe data, and physics plausibility. This produces a risk score between 0.0 and 1.0.
+
+**Step 4 — Outcome routing**
+- Score < 0.3 → Auto-approve: UPI payout disbursed in under 5 minutes
+- Score 0.3–0.7 → Soft flag: Human reviewer resolves within 2-hour SLA, payout held not cancelled
+- Score > 0.7 → Hard block: Case escalated to fraud team, appeal path available
+
+**Step 5 — Feedback loop**
+All outcomes — approvals, reversals, and blocks — feed back into the worker's trust score and the platform's ML baseline, continuously improving accuracy over time.
 
 ---
 
@@ -174,12 +129,13 @@ GigGuard uses a **usage-gated micro-premium** structure built around how food de
 | Occasional | < 10 hrs | ₹15 | ₹300 | Active shift hours only |
 
 **How it works:**
+- Premium auto-debits every **Monday morning** via UPI Autopay or Razorpay recurring mandate
+- Coverage is **shift-activated, not always-on** — a worker who doesn't tap "Start Shift" is not tracked and not covered that day, preserving privacy and battery
+- A **3-day grace period** applies for failed auto-debits before coverage lapses, preventing gaps during end-of-month cash crunches
+- **Platform subsidy pathway:** Zomato/Swiggy can enrol and subsidise premiums for their active partners as a retention benefit, reducing worker out-of-pocket cost to ₹0 via API integration at onboarding
+- Payouts count against the weekly cap — once reached, no further payouts fire until the next Monday reset
 
-- Premium auto-debits every **Monday morning** via UPI Autopay or Razorpay recurring mandate.
-- Coverage is **shift-activated, not always-on.** A worker who doesn't tap "Start Shift" is not tracked and not covered that day — privacy and battery preserved.
-- A **3-day grace period** applies for failed auto-debits (e.g., insufficient UPI balance on Monday) before coverage lapses. Prevents gaps during end-of-month cash crunches.
-- **Platform subsidy pathway:** Zomato/Swiggy can enrol and subsidise premiums for their active partners as a retention benefit, reducing worker out-of-pocket cost to ₹0. API integration with platform partner systems allows auto-enrolment at onboarding.
-- Payouts count against the weekly cap. Once the cap is reached, no further payouts fire until the next Monday reset.
+---
 
 ### Parametric Triggers
 
@@ -194,19 +150,21 @@ All triggers are **objective, dual-source verified, and income-loss specific.** 
 | **Cyclone warning** | IMD cyclone alert within 100km of worker's registered city | ₹500 flat |
 | **Unplanned curfew / strike** | Government-issued curfew order OR verified platform-wide zone closure | ₹250 |
 
-**Dual-source confirmation rule:** Both IMD (primary) and OpenWeatherMap (secondary) must confirm the trigger condition independently. This prevents a single bad weather feed from firing mass payouts. For social disruptions (curfew, strike), confirmation requires an official government notification API + platform partner zone-closure signal.
+**Dual-source confirmation rule:** Both IMD (primary) and OpenWeatherMap (secondary) must confirm the trigger condition independently. This prevents a single bad weather feed from firing mass payouts. For social disruptions, confirmation requires an official government notification API signal plus a platform partner zone-closure signal.
 
 > **What is never covered:** Vehicle breakdown, health issues, accidents, traffic delays, personal emergencies. GigGuard insures the external condition causing income loss — not any downstream consequence.
+
+---
 
 ### Platform Choice: Mobile (Android-First)
 
 | Factor | Decision |
 |---|---|
-| Device reality | 94%+ of food delivery workers in India use Android as their only device |
-| Core UX actions | Shift activation, location tracking, UPI payout — all native to mobile |
-| Fraud defense | Android native APIs (`isFromMockProvider()`, accelerometer, barometer) are critical to our verification layer |
-| Notification model | Push alerts for payout confirmation and weather warnings require a mobile client |
-| Web dashboard | Exists for **fraud ops teams and platform partners** to review flagged claims and view analytics — not for workers |
+| **Device reality** | 94%+ of food delivery workers in India use Android as their only device |
+| **Core UX actions** | Shift activation, location tracking, UPI payout — all native to mobile |
+| **Fraud defense** | Android native APIs (`isFromMockProvider()`, accelerometer, barometer) are critical to our verification layer |
+| **Notification model** | Push alerts for payout confirmation and weather warnings require a mobile client |
+| **Web dashboard** | Exists for fraud ops teams and platform partners to review flagged claims and view analytics — not for workers |
 
 A web interface for workers would add friction with no benefit. The product lives on the phone because the worker lives on the phone.
 
@@ -226,7 +184,7 @@ A web interface for workers would add friction with no benefit. The product live
 - Platform tenure and rating (proxy for reliable location data)
 - Prior claim history
 
-**Output:** A personalised weekly premium within the tier bands defined above. Workers in chronically high-risk zones (Mumbai coastal zones during June–September) will price toward the upper band; long-tenure workers in low-disruption zones toward the lower band.
+**Output:** A personalised weekly premium within the tier bands defined above. Workers in chronically high-risk zones (Mumbai coastal areas during June–September) price toward the upper band; long-tenure workers in low-disruption zones toward the lower band.
 
 **Cold-start handling:** New workers are assigned city-average risk scores for their zone until 4 weeks of shift data accumulates. No worker is penalised with a high premium during onboarding.
 
@@ -239,7 +197,7 @@ A web interface for workers would add friction with no benefit. The product live
 **Inputs per claim event:**
 - GPS coordinates + confidence interval
 - Accelerometer / gyroscope readings (motion coherence)
-- Barometric pressure (vs. weather API reading at claimed location)
+- Barometric pressure vs. weather API reading at claimed location
 - Cell tower triangulation delta
 - Wi-Fi SSID probe fingerprint
 - `isFromMockProvider()` Android flag
@@ -261,7 +219,7 @@ A web interface for workers would add friction with no benefit. The product live
 - IP subnet overlap across simultaneous claims
 - Encrypted messaging app network activity spike (metadata only, not content)
 
-**Output:** Ring confidence score per cluster. High-confidence clusters trigger **liquidity hold + ops escalation** before payout execution. The ring detector runs as a streaming job — it evaluates incoming claims in real time against the current active-claim graph, not in batch after the fact.
+**Output:** Ring confidence score per cluster. High-confidence clusters trigger liquidity hold and ops escalation before payout execution. The ring detector runs as a streaming job — evaluating incoming claims in real time against the current active-claim graph, not in batch after the fact.
 
 ---
 
@@ -274,9 +232,7 @@ A web interface for workers would add friction with no benefit. The product live
 - OpenWeatherMap hyperlocal data
 - Worker GPS ping (every 5 minutes during active shift)
 
-**Output:** Per-worker micro-zone weather severity score, updated every 5 minutes. A worker 800m outside the red-alert boundary does not receive a payout — the engine is precise to the worker's actual location, not their city or PIN code.
-
-This is the core trigger engine. The geographic precision is what separates GigGuard from a crude city-level trigger system.
+**Output:** Per-worker micro-zone weather severity score, updated every 5 minutes. A worker 800m outside the red-alert boundary does not receive a payout — the engine is precise to the worker's actual location, not their city or PIN code. This geographic precision is what separates GigGuard from a crude city-level trigger system.
 
 ---
 
@@ -286,9 +242,7 @@ This is the core trigger engine. The geographic precision is what separates GigG
 
 **Inputs:** Verified claim history, clean verification streak, platform tenure, partner rating, appeal outcomes.
 
-**Output:** Per-worker trust score (0.0–1.0) that widens the anomaly tolerance band for workers with a strong clean history, and tightens it for accounts with prior flags or new registrations.
-
-This means the system becomes **more frictionless for honest, long-term workers** — not uniformly paranoid for everyone forever. Ravi with 3 years of clean claims almost never sees a soft-flag. A week-old account with no history gets a tighter threshold by default.
+**Output:** Per-worker trust score (0.0–1.0) that widens the anomaly tolerance band for workers with a strong clean history, and tightens it for accounts with prior flags or new registrations. The system becomes more frictionless for honest long-term workers — not uniformly paranoid for everyone forever. A week-old account with no history gets a tighter threshold by default; Ravi with 3 years of clean claims almost never sees a soft-flag.
 
 ---
 
@@ -305,8 +259,10 @@ This means the system becomes **more frictionless for honest, long-term workers*
 | **Weather APIs** | IMD Data Portal · OpenWeatherMap · AQICN | IMD for official trigger authority; OWM for hyperlocal secondary confirmation |
 | **Payments** | Razorpay UPI Autopay (premium debit) + Razorpay Payout API (disbursement) | Full UPI stack in one provider; sandbox available for Phase 1–2 |
 | **Location** | Google Maps Platform + Android native location APIs | Geofencing, reverse geocoding, and native sensor access |
-| **Hosting** | AWS (EC2 · RDS · Lambda for trigger engine · SQS for payout queue) | Lambda suits the event-driven trigger model; SQS ensures no payout is dropped |
+| **Hosting** | AWS (EC2 · RDS · Lambda for trigger engine · SQS for payout queue) | Lambda suits event-driven trigger model; SQS ensures no payout is dropped |
 | **Monitoring** | Datadog (infrastructure) · Sentry (app errors) | Standard observability stack |
+
+---
 
 ### Development Roadmap
 
@@ -378,7 +334,7 @@ Each signal alone is soft. All five fused into a **composite risk score (0.0–1
 | **IP address clusters** | Claims resolving to the same home ISP subnet contradict being dispersed across a large storm zone. |
 | **`isFromMockProvider()` flag** | Android's native mock location flag checked on every GPS ping. Suppressed by advanced apps — defeated by sensor incoherence above. |
 
-**Ring detection:** Temporal graph clustering model. Nodes = workers, edges weighted by co-occurring suspicious signals. Dense clusters with tight time spread → automatic **liquidity hold + ops escalation** before disbursement.
+**Ring detection:** Temporal graph clustering model. Nodes = workers, edges weighted by co-occurring suspicious signals. Dense clusters with tight time spread trigger an automatic **liquidity hold + ops escalation** before disbursement.
 
 ---
 
@@ -398,28 +354,24 @@ Payout held, case escalated to fraud team with full signal evidence. Worker noti
 | False Positive Scenario | Response |
 |---|---|
 | Worker cleared after hard block | Held amount + **5% inconvenience credit** released automatically |
-| Signal generating high FP rate | Signal weight **auto-downregulated** via ML feedback loop |
+| Signal generating high false positive rate | That signal's weight **auto-downregulated** via ML feedback loop |
 | Long-tenure worker with clean history | Wider anomaly band — 18+ months / 200+ clean claims earns meaningful leniency |
 
 ---
 
 ### Architectural Summary
 
-```
-GPS alone                                    → trivially spoofable
-GPS + device sensors                         → hard to fake
-GPS + sensors + network triangulation        → very hard to fake
-GPS + sensors + network + behavioral graph   → extremely hard to fake
-  + temporal ring detection                  → requires defeating a live streaming system
-```
+- **GPS alone** — trivially spoofable
+- **GPS + device sensors** — hard to fake
+- **GPS + sensors + network triangulation** — very hard to fake
+- **GPS + sensors + network + behavioral history** — extremely hard to fake
+- **All of the above + temporal ring detection** — requires defeating a live streaming system simultaneously
 
-The honest worker never needs to think about any of this. The syndicate cannot beat all layers simultaneously.
+The honest worker never needs to think about any of this. The syndicate cannot beat all layers at once.
 
 ---
 
 ## Phase 1 Prototype Scope
-
-The minimal prototype demonstrated in our Phase 1 video covers:
 
 | Feature | Status | Notes |
 |---|---|---|
@@ -438,10 +390,4 @@ The minimal prototype demonstrated in our Phase 1 video covers:
 
 | Resource | Link |
 |---|---|
-| **GitHub Repository** | `https://github.com/ayeshakhurana/GigGuard` |
-| **2-Minute Strategy Video** | `..` |
-
----
-
-> *Built for DEVTrails 2026 · Phase 1 · Submission deadline: March 20, 2026*
-> *Team: [Your Team Name] · Contact: [your@email.com]*
+| **GitHub Repository** | https://github.com/yayeshakhurana/GigGuard |

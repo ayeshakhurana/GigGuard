@@ -390,4 +390,4 @@ The honest worker never needs to think about any of this. The syndicate cannot b
 
 | Resource | Link |
 |---|---|
-| **GitHub Repository** | https://github.com/yayeshakhurana/GigGuard |
+| **GitHub Repository** | https://github.com/ayeshakhurana/GigGuard |

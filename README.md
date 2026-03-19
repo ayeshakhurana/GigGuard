@@ -371,21 +371,6 @@ The honest worker never needs to think about any of this. The syndicate cannot b
 
 ---
 
-## Phase 1 Prototype Scope
-
-| Feature |  Notes |
-|---|---|---|
-| Worker app shell |  Shift activation toggle, premium status, mock payout history |
-| Trigger engine stub |  Hardcoded weather event fires against a test worker's pinned location |
-| Risk scorer demo | Synthetic claim inputs → composite score → routing decision displayed |
-| Payout confirmation screen |  UPI mock flow showing ₹250 weather disruption notification |
-| Live weather API integration |  IMD + OWM live feeds |
-| Real UPI disbursement |  Razorpay sandbox |
-| ML anomaly scorer |  Isolation Forest on live data |
-| Ring detector |  Temporal GNN streaming |
-
----
-
 ## Repository & Demo
 
 | Resource | Link |
